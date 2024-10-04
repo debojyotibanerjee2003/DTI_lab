@@ -1,19 +1,20 @@
-const connection = require('../config/db');
+// backend/models/User.js
+const db = require('../config/db');
+const bcrypt = require('bcrypt');
 
-const User = function(user) {
-  this.name = user.name;
-  this.email = user.email;
-  this.password = user.password;
-};
-
-User.create = (newUser, result) => {
-  connection.query("INSERT INTO users SET ?", newUser, (err, res) => {
-    if (err) {
-      result(err, null);
-      return;
+const User = {
+    create: async (username, email, password) => {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const [result] = await db.query(
+            'INSERT INTO users (username, email, password) VALUES (?, ?, ?)',
+            [username, email, hashedPassword]
+        );
+        return result;
+    },
+    findByUsername: async (username) => {
+        const [rows] = await db.query('SELECT * FROM users WHERE username = ?', [username]);
+        return rows[0];
     }
-    result(null, { id: res.insertId, ...newUser });
-  });
 };
 
 module.exports = User;
