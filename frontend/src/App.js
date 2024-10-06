@@ -1,24 +1,35 @@
 // src/App.js
-import React, { useState } from 'react';
-import './App.css';
-import Register from './components/Register';
-import Login from './components/Login';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import HomePage from './components/HomePage';
+import LoginSignUp from './components/LoginSignUp';
+import StudentDashboard from './components/StudentDashboard';
+import UniversityDashboard from './components/UniversityDashboard';
+import SearchResults from './components/SearchResults';
+import UniversityProfile from './components/UniversityProfile';
+import ApplicationForm from './components/ApplicationForm';
+import ScholarshipPortal from './components/ScholarshipPortal';
+import ReviewFeedback from './components/ReviewFeedback';
 
 function App() {
-    const [isLogin, setIsLogin] = useState(true); // State to toggle between login and register
-
-    const toggleForm = () => {
-        setIsLogin(!isLogin);
-    };
-
     return (
-        <div className="App">
-            <h1>{isLogin ? 'Login' : 'Register'}</h1>
-            {isLogin ? <Login /> : <Register />}
-            <button onClick={toggleForm}>
-                Switch to {isLogin ? 'Register' : 'Login'}
-            </button>
-        </div>
+        <Router>
+            <div>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginSignUp />} />
+                    <Route path="/student-dashboard" element={<StudentDashboard />} />
+                    <Route path="/university-dashboard" element={<UniversityDashboard />} />
+                    <Route path="/search-results" element={<SearchResults />} />
+                    <Route path="/university-profile" element={<UniversityProfile />} />
+                    <Route path="/application-form" element={<ApplicationForm />} />
+                    <Route path="/scholarship-portal" element={<ScholarshipPortal />} />
+                    <Route path="/reviews" element={<ReviewFeedback />} />
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
