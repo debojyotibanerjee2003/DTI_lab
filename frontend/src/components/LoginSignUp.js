@@ -1,12 +1,23 @@
-// src/components/LoginSignUp.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './Login';
 import Register from './Register';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string'; // Import query-string for parsing URL params
 import '../styles/LoginSignUp.css';
 
 function LoginSignUp() {
+    const location = useLocation();
     const [isLogin, setIsLogin] = useState(true);
     const [userType, setUserType] = useState('student');
+
+    useEffect(() => {
+        // Parse the query params and update the userType if present
+        const { userType: queryUserType } = queryString.parse(location.search);
+        if (queryUserType) {
+            setUserType(queryUserType);
+            setIsLogin(true); // Make sure it shows login after registration redirect
+        }
+    }, [location.search]);
 
     const toggleForm = () => {
         setIsLogin(!isLogin);

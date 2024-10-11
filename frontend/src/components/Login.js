@@ -22,7 +22,13 @@ function Login({ userType }) {
         if (response.ok) {
             setMessage('Login successful! Redirecting...');
             // Redirect to the appropriate dashboard
-            navigate(userType === 'student' ? '/student-dashboard' : '/university-dashboard');
+            if (userType === 'admin') {
+                navigate('/admin-dashboard');
+            } else if (userType === 'university') {
+                navigate('/university-dashboard');
+            } else if (userType === 'student') {
+                navigate('/student-dashboard');
+            }
         } else {
             setMessage(data.message || 'Login failed. Please try again.');
         }

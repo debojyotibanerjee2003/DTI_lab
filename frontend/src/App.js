@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import HomePage from './components/HomePage';
 import LoginSignUp from './components/LoginSignUp';
 import StudentDashboard from './components/StudentDashboard';
+import AdminDashboard from './components/AdminDashboard';
 import UniversityDashboard from './components/UniversityDashboard';
 import SearchResults from './components/SearchResults';
 import UniversityProfile from './components/UniversityProfile';
@@ -21,6 +22,7 @@ function App() {
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginSignUp />} />
                     <Route path="/student-dashboard" element={<StudentDashboard />} />
+                    <Route path="/admin-dashboard" element={<AdminDashboard />} />
                     <Route path="/university-dashboard" element={<UniversityDashboard />} />
                     <Route path="/search-results" element={<SearchResults />} />
                     <Route path="/university-profile" element={<UniversityProfile />} />

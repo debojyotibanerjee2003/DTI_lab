@@ -14,6 +14,7 @@ function Navbar() {
                 <li><Link to="/login">Login/Sign-up</Link></li>
                 <li><Link to="/student-dashboard">Student Dashboard</Link></li>
                 <li><Link to="/university-dashboard">University Dashboard</Link></li>
+                <li><Link to="/admin-dashboard">Admin Dashboard</Link></li>
                 <li><Link to="/search-results">Search Universities</Link></li>
                 <li><Link to="/scholarship-portal">Scholarship Portal</Link></li>
                 <li><Link to="/university-profile">Virtual Campus Tour</Link></li>
