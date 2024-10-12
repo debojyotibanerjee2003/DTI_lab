@@ -1,0 +1,95 @@
+/* PaymentForm.css */
+body {
+    font-family: 'Open Sans', sans-serif; /* Ensure you add this font to your index.html */
+}
+
+.payment-form-container {
+    background-color: #f7fafc; /* Light gray background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.payment-form {
+    background-color: white; /* White background for form */
+    padding: 24px; /* Padding for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    width: 100%; /* Full width on small screens */
+    max-width: 400px; /* Max width for larger screens */
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px; /* Spacing below the header */
+}
+
+.form-title {
+    color: #4a5568; /* Dark gray color */
+    font-size: 18px; /* Font size for title */
+}
+
+.form-input {
+    padding: 10px; /* Padding inside input */
+    border: 1px solid #cbd5e0; /* Light border */
+    border-radius: 4px; /* Rounded corners for input */
+    width: 100%; /* Full width for inputs */
+    margin-top: 8px; /* Spacing above inputs */
+}
+
+.field-group {
+    display: flex; /* Flexbox for grouping inputs */
+    justify-content: space-between; /* Space between inputs */
+    margin-bottom: 16px; /* Spacing below each group */
+}
+
+.card-cw {
+    width: 80px; /* Fixed width for card code */
+}
+
+.expiry-date {
+    width: 100px; /* Fixed width for expiry date */
+}
+
+.submit-button {
+    margin-top: 24px; /* Spacing above the button */
+    background-color: #48bb78; /* Green background */
+    color: white; /* White text */
+    padding: 12px; /* Padding for button */
+    border-radius: 4px; /* Rounded corners for button */
+    width: 100%; /* Full width for button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.success-message {
+    text-align: center; /* Center the success message */
+}
+
+.success-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px; /* Spacing below the icon */
+}
+
+.icon {
+    height: 64px; /* Height of the icon */
+    width: 64px; /* Width of the icon */
+    color: white; /* White color for the icon */
+    background-color: #48bb78; /* Green background for icon */
+    border-radius: 50%; /* Circle shape */
+    padding: 16px; /* Padding around icon */
+}
+
+.success-title {
+    font-size: 24px; /* Font size for success title */
+    font-weight: 600; /* Bold text */
+    color: #4a5568; /* Dark gray color */
+    margin-bottom: 8px; /* Spacing below title */
+}
+
+.success-message-text {
+    color: #718096; /* Medium gray color */
+}

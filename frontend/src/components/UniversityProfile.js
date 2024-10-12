@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import UnivAbout from './UnivAbout';
 import UnivPrograms from './UnivPrograms';
 import UnivAdmissions from './UnivAdmissions';
@@ -11,9 +10,16 @@ import UnivFooter from './UnivFooter';
 import Placement from './Placement';
 import '../styles/UnivProfile.css'; // Importing the CSS file
 import ScholarshipPortal from './ScholarshipPortal';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const UniversityProfile = () => {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleApplyClick = () => {
+        navigate('/upload'); // Redirect to Upload.js (assuming the route is set up correctly)
+    };
 
     const renderPage = () => {
         switch (location.pathname) {
@@ -100,7 +106,19 @@ const UniversityProfile = () => {
                                 <li><strong>Average Salary Package:</strong> Rs. 6,00,000 per annum</li>
                                 <li><strong>Placement Percentage:</strong> 90%</li>
                             </ul>
-                            <a href="../upload_dti/upload.html" className="btn" style={{ color: 'black', textDecoration: 'none', padding: '10px 20px', backgroundColor: '#f0f0f0', border: '1px solid black', borderRadius: '5px' }}>Apply</a>
+                            <button 
+                                onClick={handleApplyClick}
+                                className="btn" 
+                                style={{ 
+                                    color: 'black', 
+                                    textDecoration: 'none', 
+                                    padding: '10px 20px', 
+                                    backgroundColor: '#f0f0f0', 
+                                    border: '1px solid black', 
+                                    borderRadius: '5px' 
+                                }}>
+                                Apply
+                            </button>
                         </section>
 
                         <footer>
