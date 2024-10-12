@@ -1,11 +1,11 @@
 import React from 'react';
+import MainContent from './MainContent';
 
 function AdminDashboard() {
     return (
         <div>
             <h2>Admin Dashboard</h2>
-            <p>Application Tracking of student, Document Verification, Notifications, Scholarship Suggestions</p>
-            {/* Implement more features here */}
+            <MainContent />
         </div>
     );
 }

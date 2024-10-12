@@ -18,6 +18,7 @@ function App() {
         <Router>
             <div>
                 <Navbar />
+                <div style={{ paddingTop: '100px' }}>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginSignUp />} />
@@ -30,6 +31,7 @@ function App() {
                     <Route path="/scholarship-portal" element={<ScholarshipPortal />} />
                     <Route path="/reviews" element={<ReviewFeedback />} />
                 </Routes>
+                </div>
             </div>
         </Router>
     );

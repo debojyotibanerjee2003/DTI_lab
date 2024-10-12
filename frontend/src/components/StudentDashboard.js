@@ -1,14 +1,15 @@
 // src/components/StudentDashboard.js
 import React from 'react';
+import MainContent from './MainContent';
 
 function StudentDashboard() {
     return (
         <div>
             <h2>Student Dashboard</h2>
-            <p>Application Tracking, Document Upload, Notifications, Scholarship Suggestions</p>
-            {/* Implement more features here */}
+            <MainContent />
         </div>
     );
 }
 
 export default StudentDashboard;
+
