@@ -1,0 +1,34 @@
+/* Header Styles */
+.header {
+    background-color: #93c3c7; /* Dark background for the header */
+    padding: 1rem; /* Padding around the header */
+}
+
+.container {
+    display: flex; /* Use flexbox to align items in a row */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between logo and navigation */
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Center the container */
+}
+
+.logo {
+    height: 50px; /* Set the height of the logo */
+    padding-right: 3cm;
+}
+
+nav {
+    display: flex; /* Use flexbox for nav items */
+}
+
+nav a {
+    color: #fff; /* White text color for links */
+    text-decoration: none; /* Remove underline from links */
+    padding: 0.5rem 1rem; /* Padding around links */
+    transition: background 0.3s; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+    background-color: #444; /* Darker background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
