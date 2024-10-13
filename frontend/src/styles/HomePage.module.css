@@ -13,7 +13,7 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
+.hero {
     background: #0056b3;
     color: #fff;
     padding: 2rem 0;
@@ -29,7 +29,7 @@ header {
     margin: 1rem 0;
 }
 
-.cta-button {
+.ctaButton {
     display: inline-block;
     background: #fff;
     color: #0056b3;
@@ -41,15 +41,15 @@ header {
     transition: background 0.3s;
 }
 
-.cta-button:hover {
+.ctaButton:hover {
     background: #e6f7ff;
 }
 
-.get-started-button {
+.getStartedButton {
     background: #ff6600; /* Different color for differentiation */
 }
 
-.info-sections {
+.infoSections {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -57,7 +57,7 @@ header {
     padding: 2rem 0;
 }
 
-.info-section {
+.infoSection {
     flex: 1 1 calc(25% - 20px); /* Adjust size of each section */
     background: #fff;
     border: 1px solid #ddd;
@@ -66,26 +66,26 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.info-section h2 {
+.infoSection h2 {
     color: #0056b3;
     margin-bottom: 0.5rem;
 }
 
-.info-section p {
+.infoSection p {
     margin-bottom: 1rem;
 }
 
-#get-started {
+#getStarted {
     background: #e6f7ff;
     padding: 2rem 0;
     text-align: center;
 }
 
-#get-started h2 {
+#getStarted h2 {
     color: #0056b3;
 }
 
-#get-started ol {
+#getStarted ol {
     list-style-type: decimal;
     padding-left: 20px;
     text-align: left;
@@ -110,18 +110,18 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .info-sections {
+    .infoSections {
         flex-direction: column;
         align-items: center;
     }
 
-    .info-section {
+    .infoSection {
         flex: 1 1 100%;
         max-width: 600px;
         margin-bottom: 20px;
     }
 
-    .cta-button {
+    .ctaButton {
         width: 80%;
         margin: 0.5rem auto;
     }

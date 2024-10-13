@@ -1,6 +1,6 @@
-// App.js (React Component)
+// ScholarshipPortal.js (React Component)
 import React from "react";
-import "../styles/ScholarshipPortal.css"; // External CSS or inline styles can remain unchanged
+import "../styles/ScholarshipPortal.module.css"; // External CSS or inline styles can remain unchanged
 
 const ScholarshipCard = ({ featured, daysToGo, logo, title, award, eligibility, lastUpdated }) => {
     return (
@@ -8,7 +8,7 @@ const ScholarshipCard = ({ featured, daysToGo, logo, title, award, eligibility, 
             <div className="flex justify-between items-center mb-2">
                 {featured && <span className="bg-green-500 text-white px-2 py-1 rounded">Featured</span>}
                 {daysToGo ? (
-                    <span className={`bg-red-500 text-white px-2 py-1 rounded`}>{daysToGo} days to go</span>
+                    <span className="bg-red-500 text-white px-2 py-1 rounded">{daysToGo} days to go</span>
                 ) : (
                     <span className="bg-gray-500 text-white px-2 py-1 rounded">{lastUpdated}</span>
                 )}
@@ -88,23 +88,18 @@ const ScholarshipPortal = () => {
             <header className="bg-white shadow">
                 <div className="container mx-auto px-4 py-4 flex justify-between items-center">
                     <div className="flex items-center">
-                        <img src="https://placehold.co/50x50" alt="Buddy4Study Logo" className="mr-2" />
-                        <span className="text-xl font-bold">Buddy4Study</span>
+                        {/*<img src="https://placehold.co/50x50" alt="Buddy4Study Logo" className="mr-2" />*/}
+                        <span className="text-3xl font-bold px-1">UniScholar</span>
                     </div>
                     <nav className="flex space-x-4">
-                        <a href="#" className="text-gray-700">Scholarships</a>
-                        <a href="#" className="text-gray-700">Student Services</a>
-                        <a href="#" className="text-gray-700">Career Guidance</a>
-                        <a href="#" className="text-gray-700">Results</a>
-                        <a href="#" className="text-gray-700">Become A Partner</a>
-                        <a href="#" className="text-gray-700">Education Loan Support</a>
-                        <a href="#" className="text-gray-700">Online Degrees</a>
-                        <a href="#" className="text-gray-700">Articles</a>
+                        <a href="#" className="text-blue-700 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3">Scholarships</a>
+                        <a href="#" className="text-blue-700 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3">Student Services</a>
+                        <a href="#" className="text-blue-700 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3">Results</a>
+                        <a href="#" className="text-blue-700 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3">Become A Partner</a>
+                        <a href="#" className="text-blue-700 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3">Education Loan Support</a>
                     </nav>
                     <div className="flex space-x-4">
-                        <a href="#" className="text-gray-700">Login</a>
-                        <a href="#" className="text-gray-700">Register</a>
-                        <a href="#" className="text-gray-700"><i className="fas fa-th"></i> Explore</a>
+                        <a href="#" className="text-blue-900 font-bold hover:bg-blue-100 transition duration-200 rounded px-5 py-3"><i className="fas fa-th"></i> Explore</a>
                     </div>
                 </div>
             </header>
@@ -184,14 +179,13 @@ const ScholarshipPortal = () => {
                 <main className="w-3/4 ml-6">
                     <h1 className="text-2xl font-bold mb-4">Scholarships</h1>
                     <div className="mb-4">
-                        <input type="text" placeholder="Search Category and Skills" className="w-full p-2 border rounded"/>
+                        <input
+                            type="text"
+                            placeholder="Search Scholarships..."
+                            className="w-full p-2 border rounded"
+                        />
                     </div>
-                    <div className="flex space-x-4 mb-4">
-                        <button className="bg-blue-100 text-blue-500 px-4 py-2 rounded">Live Scholarships</button>
-                        <button className="bg-blue-100 text-blue-500 px-4 py-2 rounded">Upcoming Scholarships</button>
-                        <button className="bg-blue-100 text-blue-500 px-4 py-2 rounded">Always Open</button>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {scholarships.map((scholarship, index) => (
                             <ScholarshipCard key={index} {...scholarship} />
                         ))}

@@ -1,9 +1,9 @@
-/* PaymentForm.css */
+/* PaymentForm.module.css */
 body {
     font-family: 'Open Sans', sans-serif; /* Ensure you add this font to your index.html */
 }
 
-.payment-form-container {
+.paymentFormContainer {
     background-color: #f7fafc; /* Light gray background */
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
 }
 
-.payment-form {
+.paymentForm {
     background-color: white; /* White background for form */
     padding: 24px; /* Padding for the form */
     border-radius: 8px; /* Rounded corners */
@@ -20,19 +20,19 @@ body {
     max-width: 400px; /* Max width for larger screens */
 }
 
-.form-header {
+.formHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px; /* Spacing below the header */
 }
 
-.form-title {
+.formTitle {
     color: #4a5568; /* Dark gray color */
     font-size: 18px; /* Font size for title */
 }
 
-.form-input {
+.formInput {
     padding: 10px; /* Padding inside input */
     border: 1px solid #cbd5e0; /* Light border */
     border-radius: 4px; /* Rounded corners for input */
@@ -40,21 +40,21 @@ body {
     margin-top: 8px; /* Spacing above inputs */
 }
 
-.field-group {
+.fieldGroup {
     display: flex; /* Flexbox for grouping inputs */
     justify-content: space-between; /* Space between inputs */
     margin-bottom: 16px; /* Spacing below each group */
 }
 
-.card-cw {
+.cardCW {
     width: 80px; /* Fixed width for card code */
 }
 
-.expiry-date {
+.expiryDate {
     width: 100px; /* Fixed width for expiry date */
 }
 
-.submit-button {
+.submitButton {
     margin-top: 24px; /* Spacing above the button */
     background-color: #48bb78; /* Green background */
     color: white; /* White text */
@@ -64,11 +64,11 @@ body {
     cursor: pointer; /* Pointer cursor on hover */
 }
 
-.success-message {
+.successMessage {
     text-align: center; /* Center the success message */
 }
 
-.success-icon {
+.successIcon {
     display: flex;
     justify-content: center;
     margin-bottom: 16px; /* Spacing below the icon */
@@ -83,13 +83,13 @@ body {
     padding: 16px; /* Padding around icon */
 }
 
-.success-title {
+.successTitle {
     font-size: 24px; /* Font size for success title */
     font-weight: 600; /* Bold text */
     color: #4a5568; /* Dark gray color */
     margin-bottom: 8px; /* Spacing below title */
 }
 
-.success-message-text {
+.successMessageText {
     color: #718096; /* Medium gray color */
 }

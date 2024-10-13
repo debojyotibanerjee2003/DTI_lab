@@ -1,4 +1,5 @@
-/* src/styles/Navbar.css */
+/* src/styles/Navbar.module.css */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -18,7 +19,7 @@
     background-color: rgba(31, 31, 31, 0.8); /* Fully opaque background when scrolled */
 }
 
-.navbar-logo a {
+.navbarLogo a {
     color: #fff;
     font-size: 2rem;
     font-weight: 700;
@@ -29,26 +30,23 @@
     padding-right: 30px;
 }
 
-.navbar-logo a:hover {
+.navbarLogo a:hover {
     color: #579cd1;
-    padding-right: 30px;
 }
 
-.navbar-links {
+.navbarLinks {
     list-style-type: none;
     display: flex;
     gap: 45px;
     margin: 0;
-    
 }
 
-.navbar-links li {
+.navbarLinks li {
     margin: 0;
     position: relative;
-    
 }
 
-.navbar-links a {
+.navbarLinks a {
     color: #eaeaea;
     text-decoration: none;
     padding: 10px 15px;
@@ -58,11 +56,17 @@
     border-radius: 5px;
 }
 
-.navbar-links a:hover {
+/* Active link styling */
+.navbarLinks a.active {
+    background-color: rgba(255, 255, 255, 0.2);
     color: #579cd1;
 }
 
-.navbar-button {
+.navbarLinks a:hover {
+    color: #579cd1;
+}
+
+.navbarButton {
     padding: 10px 25px;
     background-color: #579cd1;
     color: #fff;
@@ -74,12 +78,12 @@
     transition: background-color 0.3s ease;
 }
 
-.navbar-button:hover {
+.navbarButton:hover {
     background-color: #8be2e7;
 }
 
 @media (max-width: 1024px) {
-    .navbar-links {
+    .navbarLinks {
         gap: 15px;
     }
 }
@@ -90,7 +94,7 @@
         padding: 10px;
     }
 
-    .navbar-links {
+    .navbarLinks {
         flex-direction: column;
         gap: 10px;
         width: 100%;

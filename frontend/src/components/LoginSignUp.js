@@ -1,9 +1,10 @@
+// src/components/LoginSignUp.js
 import React, { useState, useEffect } from 'react';
 import Login from './Login';
 import Register from './Register';
 import { useLocation } from 'react-router-dom';
 import queryString from 'query-string'; // Import query-string for parsing URL params
-import '../styles/LoginSignUp.css';
+import styles from '../styles/LoginSignUp.module.css'; // Import CSS module
 
 function LoginSignUp() {
     const location = useLocation();
@@ -15,7 +16,7 @@ function LoginSignUp() {
         const { userType: queryUserType } = queryString.parse(location.search);
         if (queryUserType) {
             setUserType(queryUserType);
-            setIsLogin(true); // Make sure it shows login after registration redirect
+            setIsLogin(true); // Ensure it shows login after registration redirect
         }
     }, [location.search]);
 
@@ -28,22 +29,22 @@ function LoginSignUp() {
     };
 
     return (
-        <div className="login-signup-container">
+        <div className={styles.loginSignupContainer}>
             <h2>{isLogin ? 'Login' : 'Sign-Up'}</h2>
             
-            <div className="user-type-selection">
-                <label htmlFor="userType">I am a:</label>
+            <div className={styles.userTypeSelection}>
+                <label htmlFor="userType">I am a:</label><br></br><br></br>
                 <select id="userType" value={userType} onChange={handleUserTypeChange}>
                     <option value="student">Student</option>
                     <option value="university">University</option>
                     <option value="admin">Admin</option>
                 </select>
-            </div>
+            </div><br></br>
 
             {isLogin ? <Login userType={userType} /> : <Register userType={userType} />}
 
-            <div className="toggle-container">
-                <button onClick={toggleForm} className="toggle-button">
+            <div className={styles.toggleContainer}><br></br>
+                <button onClick={toggleForm} className={styles.toggleButton}>
                     {isLogin ? 'Switch to Sign-Up' : 'Switch to Login'}
                 </button>
             </div>

@@ -6,7 +6,7 @@ const SearchResults = () => {
         <div>
             {/* Header Section */}
             <header className="bg-blue-900 text-white p-4 flex justify-between items-center">
-                <div className="text-2xl font-bold">Booking.com</div>
+                <div className="text-3xl font-bold px-10">UniSearch</div>
                 <div className="flex space-x-4">
                     <button className="bg-white text-blue-900 px-4 py-2 rounded">Register</button>
                     <button className="bg-white text-blue-900 px-4 py-2 rounded">Sign in</button>
@@ -15,12 +15,10 @@ const SearchResults = () => {
 
             {/* Navigation Buttons */}
             <div className="bg-blue-900 text-white p-4 flex justify-center space-x-4">
-                <button className="bg-blue-700 px-4 py-2 rounded">Stays</button>
-                <button className="px-4 py-2 rounded">Flights</button>
-                <button className="px-4 py-2 rounded">Flight + Hotel</button>
-                <button className="px-4 py-2 rounded">Car rentals</button>
-                <button className="px-4 py-2 rounded">Attractions</button>
-                <button className="px-4 py-2 rounded">Airport taxis</button>
+                <button className="bg-blue-700 px-4 py-2 rounded">Universities</button>
+                <button className="px-4 py-2 rounded">NIRF Ranking</button>
+                <button className="px-4 py-2 rounded">QS ranking</button>
+                <button className="px-4 py-2 rounded">Country</button>
             </div>
 
             {/* Search Section */}

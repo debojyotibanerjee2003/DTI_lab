@@ -1,37 +1,37 @@
 // src/components/HomePage.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/HomePage.css';
+import styles from '../styles/HomePage.module.css'; // Import CSS module
 
 function HomePage() {
     return (
-        <div className="homepage-container">
-            <header className="hero">
+        <div className={styles.homepageContainer}>
+            <header className={styles.hero}>
                 <h1>Welcome to University Course Registration System</h1>
                 <p>Enhancing the course registration experience for students</p>
-                <Link to="/course-journey-map" className="cta-button">Explore the Journey Map</Link>
-                <Link to="/login" className="cta-button get-started-button">Get Started</Link>
+                <Link to="/course-journey-map" className={styles.ctaButton}>Explore the Journey Map</Link>
+                <Link to="/login" className={`${styles.ctaButton} ${styles.getStartedButton}`}>Get Started</Link>
             </header>
 
-            <section className="info-sections">
-                <div className="info-section">
+            <section className={styles.infoSections}>
+                <div className={styles.infoSection}>
                     <h2>About Us</h2>
                     <p>We understand that the course registration process can be complex and frustrating. Our goal is to simplify this process through a user-friendly interface and insightful journey map.</p>
                 </div>
-                <div className="info-section">
+                <div className={styles.infoSection}>
                     <h2>Course Journey Map</h2>
                     <p>Discover how we have mapped out the entire course registration process to identify pain points and improve your experience.</p>
-                    <Link to="/course-journey-map" className="cta-button">View Journey Map</Link>
+                    <Link to="/course-journey-map" className={styles.ctaButton}>View Journey Map</Link>
                 </div>
-                <div className="info-section">
+                <div className={styles.infoSection}>
                     <h2>Give Us Your Feedback</h2>
                     <p>Your feedback is crucial for us to enhance the system. Share your thoughts and help us make the registration process better for everyone.</p>
-                    <Link to="/feedback" className="cta-button">Submit Feedback</Link>
+                    <Link to="/feedback" className={styles.ctaButton}>Submit Feedback</Link>
                 </div>
-                <div className="info-section">
+                <div className={styles.infoSection}>
                     <h2>Contact Us</h2>
                     <p>If you have any questions or need support, feel free to get in touch with our team.</p>
-                    <Link to="/contact" className="cta-button">Contact Support</Link>
+                    <Link to="/contact" className={styles.ctaButton}>Contact Support</Link>
                 </div>
             </section>
 
@@ -43,7 +43,7 @@ function HomePage() {
                     <li>Select your desired courses.</li>
                     <li>Confirm your registration.</li>
                 </ol>
-                <Link to="/start-registration" className="cta-button">Start Now</Link>
+                <Link to="/start-registration" className={styles.ctaButton}>Start Now</Link>
             </section>
 
             <footer>

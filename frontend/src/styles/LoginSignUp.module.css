@@ -1,5 +1,5 @@
-/* src/styles/LoginSignUp.css */
-.login-signup-container {
+/* src/styles/LoginSignUp.module.css */
+.loginSignupContainer {
     text-align: center;
     margin: 50px auto;
     width: 300px;
@@ -9,11 +9,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.toggle-container {
+.toggleContainer {
     margin-top: 20px;
 }
 
-.toggle-button {
+.toggleButton {
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
@@ -22,6 +22,6 @@
     cursor: pointer;
 }
 
-.toggle-button:hover {
+.toggleButton:hover {
     background-color: #0056b3;
 }

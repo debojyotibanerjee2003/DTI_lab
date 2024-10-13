@@ -42,22 +42,37 @@ function Login({ userType }) {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     placeholder="Username"
+                    style={{ paddingRight: '0px', 
+                        width: '255px', 
+                        paddingLeft: '15px',
+                        height: '45px', 
+                        borderWidth: '0.1px',  // For a thicker border
+                        borderRadius: '4px', // For rounded corners
+                        borderStyle: 'solid', // Define the border style (solid, dotted, etc.)
+                        borderColor: 'black' }}
                     required
                 />
-                <div style={{ position: 'relative' }}>
+                <div style={{ position: 'relative', marginTop: '10px' }}>
                     <input
                         type={showPassword ? 'text' : 'password'} // Toggle between text and password types
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Password"
                         required
-                        style={{ paddingRight: '40px' }} // Space for the eye icon
-                    />
+                        style={{ paddingRight: '0px', 
+                            width: '255px', 
+                            height: '45px', 
+                            paddingLeft: '15px',
+                            borderWidth: '0.1px',  // For a thicker border
+                            borderRadius: '4px', // For rounded corners
+                            borderStyle: 'solid', // Define the border style (solid, dotted, etc.)
+                            borderColor: 'black' }} // Space for the eye icon
+                    /><br></br>
                     <span
                         onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
                         style={{
                             position: 'absolute',
-                            right: '10px',
+                            right: '8px',
                             top: '50%',
                             transform: 'translateY(-50%)',
                             cursor: 'pointer',
@@ -65,7 +80,7 @@ function Login({ userType }) {
                     >
                         {showPassword ? 'Hide' : 'Show'} {/* Eye icon */}
                     </span>
-                </div>
+                </div><br></br>
                 <button type="submit">Login</button>
             </form>
             {message && <p>{message}</p>}
