@@ -1,7 +1,58 @@
-// src/components/SearchResults.js
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 
 const SearchResults = () => {
+    // Embedded JSON Data
+    const universityData = [
+        {
+            name: "Indian Institute of Technology Bombay",
+            location: "Mumbai, Maharashtra",
+            qsRanking: 177,
+            nirfRanking: 3,
+            phoneNumber: "+91-22-25722545",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jGXDtpoKU2QoWvZJinXfw7LeRGrzNA_Xmg&s",  // Placeholder image
+            reviews: {
+                rating: 4.8,
+                count: 320,
+            },
+            featured: true
+        },
+        {
+            name: "Indian Institute of Technology Delhi",
+            location: "Delhi, India",
+            qsRanking: 185,
+            nirfRanking: 2,
+            phoneNumber: "+91-11-26597135",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",  // Placeholder image
+            reviews: {
+                rating: 4.7,
+                count: 290,
+            },
+            featured: false
+        },
+        {
+            name: "Indian Institute of Technology Kanpur",
+            location: "Kanpur, Uttar Pradesh",
+            qsRanking: 227,
+            nirfRanking: 4,
+            phoneNumber: "+91-512-2590151",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59H4g62ys-lMF-b4wK2AfEfqX_Is3FvCwtQ&s",  // Placeholder image
+            reviews: {
+                rating: 4.5,
+                count: 280,
+            },
+            featured: true
+        }
+    ];
+
+    // State to store universities (since there's no fetching, we set it directly)
+    const [universities, setUniversities] = useState([]);
+
+    // Simulate fetching data by using useEffect to set the JSON data
+    useEffect(() => {
+        setUniversities(universityData); // Simulates fetching
+    }, []);
+
     return (
         <div>
             {/* Header Section */}
@@ -17,7 +68,7 @@ const SearchResults = () => {
             <div className="bg-blue-900 text-white p-4 flex justify-center space-x-4">
                 <button className="bg-blue-700 px-4 py-2 rounded">Universities</button>
                 <button className="px-4 py-2 rounded">NIRF Ranking</button>
-                <button className="px-4 py-2 rounded">QS ranking</button>
+                <button className="px-4 py-2 rounded">QS Ranking</button>
                 <button className="px-4 py-2 rounded">Country</button>
             </div>
 
@@ -29,11 +80,11 @@ const SearchResults = () => {
                 <button className="bg-yellow-500 text-white px-4 py-2 rounded">Search</button>
             </div>
 
-            {/* Breadcrumbs and Results */}
+            {/* Breadcrumbs */}
             <div className="p-4">
-                <h1 className="text-2xl font-bold mb-4">MIT: 10 results found</h1>
+                <h1 className="text-2xl font-bold mb-4">Universities: {universities.length} results found</h1>
 
-                {/* Sorting and View Buttons */}
+                {/* Sorting and View Options */}
                 <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center space-x-2">
                         <i className="fas fa-sort"></i>
@@ -45,9 +96,9 @@ const SearchResults = () => {
                     </div>
                 </div>
 
-                {/* Main Content: Sidebar + Listings */}
+                {/* Sidebar + Listings */}
                 <div className="flex">
-                    {/* Sidebar */}
+                    {/* Sidebar Section */}
                     <aside className="w-1/4 p-4 border rounded">
                         <button className="bg-blue-500 text-white px-4 py-2 rounded w-full mb-4">Show on map</button>
                         <div className="mb-4">
@@ -60,7 +111,7 @@ const SearchResults = () => {
                                 </label>
                             </div>
                             <div className="mb-2">
-                                <h3 className="font-semibold">Univeristy Course fee(excluding Scholarships)</h3>
+                                <h3 className="font-semibold">University Course Fee (Excl. Scholarships)</h3>
                                 <div className="flex items-center space-x-2 mb-2">
                                     <button className="border px-4 py-2 rounded">Per semester</button>
                                     <button className="border px-4 py-2 rounded">Per year</button>
@@ -97,74 +148,44 @@ const SearchResults = () => {
                         </div>
                     </aside>
 
-                    {/* Property Listings */}
+                    {/* University Listings */}
                     <main className="w-3/4 p-4">
-                        <div className="border rounded p-4 mb-4">
-                            <div className="flex">
-                                <img src="https://placehold.co/150x150" alt="Room with a double bed and balcony" className="w-1/4 rounded" />
-                                <div className="w-3/4 pl-4">
-                                    <h2 className="text-xl font-bold">Indian Institute of Technology, Bombay</h2>
-                                    <div className="flex items-center space-x-2 mb-2">
-                                        <span className="bg-yellow-400 text-white px-2 py-1 rounded">Featured</span>
-                                        <a href="#" className="text-blue-500 hover:underline">Research university in Mumbai, Maharashtra</a>
-                                        <span>. In the downtown</span>
-                                    </div>
-                                    <div className="mb-2">
-                                        <span className="font-semibold">QS Ranking-</span>
-                                        <span> 59</span>
-                                        <br></br>
-                                        <span className="font-semibold">Nirf Ranking-</span>
-                                        <span> 1</span>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                        <span className="font-semibold">Phone Number-</span>
-                                        <span> 022 2572 2545</span>
-                                    </div>
-                                    <div className="flex items-center space-x-2 mt-2">
-                                        <button className="bg-blue-500 text-white px-4 py-2 rounded">See More</button>
-                                        <div className="flex items-center space-x-1">
-                                            <span className="text-gray-500">Excellent</span>
-                                            <span className="bg-blue-500 text-white px-2 py-1 rounded">9.6</span>
-                                            <span className="text-gray-500">(42 reviews)</span>
+                        {universities.map((university, index) => (
+                            <div key={index} className="border rounded p-4 mb-4">
+                                <div className="flex">
+                                    <img src={university.image} alt={university.name} className="w-1/3 h-45 rounded" />
+                                    <div className="w-3/4 pl-4">
+                                        <h2 className="text-xl font-bold">{university.name}</h2>
+                                        <div className="flex items-center space-x-2 mb-2">
+                                            {university.featured && (
+                                                <span className="bg-yellow-400 text-white px-2 py-1 rounded">Featured</span>
+                                            )}
+                                            <span>{university.location}</span>
+                                        </div>
+                                        <div className="mb-2">
+                                            <span className="font-semibold">QS Ranking: </span>
+                                            <span>{university.qsRanking}</span>
+                                        </div>
+                                        <div className="mb-2">
+                                            <span className="font-semibold">NIRF Ranking: </span>
+                                            <span>{university.nirfRanking}</span>
+                                        </div>
+                                        <div className="mb-2">
+                                            <span className="font-semibold">Phone: </span>
+                                            <span>{university.phoneNumber}</span>
+                                        </div>
+                                        <div className="flex items-center space-x-2 mt-2">
+                                            <button className="bg-blue-500 text-white px-4 py-2 rounded">See More</button>
+                                            <div className="flex items-center space-x-1">
+                                                <span className="text-gray-500">Excellent</span>
+                                                <span className="bg-blue-500 text-white px-2 py-1 rounded">{university.reviews.rating}</span>
+                                                <span className="text-gray-500">({university.reviews.count} reviews)</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Second Property */}
-                        <div className="border rounded p-4">
-                            <div className="flex">
-                                <img src="https://placehold.co/150x150" alt="Room with multiple beds" className="w-1/4 rounded" />
-                                <div className="w-3/4 pl-4">
-                                    <h2 className="text-xl font-bold">Indian Institute of Technology, Kharagpur</h2>
-                                    <div className="flex items-center space-x-2 mb-2">
-                                        <span className="bg-yellow-400 text-white px-2 py-1 rounded">Featured</span>
-                                        <a href="#" className="text-blue-500 hover:underline">Research university in Mumbai, Maharashtra</a>
-                                        <span>. In the downtown</span>
-                                    </div>
-                                    <div className="mb-2">
-                                        <span className="font-semibold">QS Ranking-</span>
-                                        <span> 224</span>
-                                        <br></br>
-                                        <span className="font-semibold">Nirf Ranking-</span>
-                                        <span> 4</span>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                    <span className="font-semibold">Phone Number-</span>
-                                    <span> 032 2225 5221</span>
-                                    </div>
-                                    <div className="flex items-center space-x-2 mt-2">
-                                        <button className="bg-blue-500 text-white px-4 py-2 rounded">See More</button>
-                                        <div className="flex items-center space-x-1">
-                                            <span className="text-gray-500">Excellent</span>
-                                            <span className="bg-blue-500 text-white px-2 py-1 rounded">9.6</span>
-                                            <span className="text-gray-500">(42 reviews)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        ))}
                     </main>
                 </div>
             </div>
