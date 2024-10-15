@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-
 const SearchResults = () => {
     // Embedded JSON Data
     const universityData = [
         {
             name: "Indian Institute of Technology Bombay",
-            location: "Mumbai, Maharashtra",
+            location: "Mumbai, Maharashtra, India",
             qsRanking: 177,
             nirfRanking: 3,
             phoneNumber: "+91-22-25722545",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jGXDtpoKU2QoWvZJinXfw7LeRGrzNA_Xmg&s",  // Placeholder image
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jGXDtpoKU2QoWvZJinXfw7LeRGrzNA_Xmg&s",
             reviews: {
                 rating: 4.8,
                 count: 320,
@@ -19,11 +18,11 @@ const SearchResults = () => {
         },
         {
             name: "Indian Institute of Technology Delhi",
-            location: "Delhi, India",
+            location: "Kuala Lumpur, Singapore",
             qsRanking: 185,
             nirfRanking: 2,
             phoneNumber: "+91-11-26597135",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",  // Placeholder image
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
             reviews: {
                 rating: 4.7,
                 count: 290,
@@ -31,12 +30,12 @@ const SearchResults = () => {
             featured: false
         },
         {
-            name: "Indian Institute of Technology Kanpur",
-            location: "Kanpur, Uttar Pradesh",
+            name: "National University of Singapore",
+            location: "21 Lower Kent Ridge Rd, Singapore",
             qsRanking: 227,
-            nirfRanking: 4,
+            nirfRanking: 2,
             phoneNumber: "+91-512-2590151",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59H4g62ys-lMF-b4wK2AfEfqX_Is3FvCwtQ&s",  // Placeholder image
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59H4g62ys-lMF-b4wK2AfEfqX_Is3FvCwtQ&s",
             reviews: {
                 rating: 4.5,
                 count: 280,
@@ -47,11 +46,29 @@ const SearchResults = () => {
 
     // State to store universities (since there's no fetching, we set it directly)
     const [universities, setUniversities] = useState([]);
+    const [searchName, setSearchName] = useState('');
+    const [searchLocation, setSearchLocation] = useState('');
+    const [searchRanking, setSearchRanking] = useState('');
+    const [viewMode, setViewMode] = useState('list'); // 'list' or 'grid' mode
 
     // Simulate fetching data by using useEffect to set the JSON data
     useEffect(() => {
         setUniversities(universityData); // Simulates fetching
     }, []);
+
+    // Filtering Logic
+    const filteredUniversities = universities.filter(university => {
+        return (
+            university.name.toLowerCase().includes(searchName.toLowerCase()) &&
+            university.location.toLowerCase().includes(searchLocation.toLowerCase()) &&
+            (searchRanking === '' || university.qsRanking === parseInt(searchRanking)) // Filter by ranking if it's provided
+        );
+    });
+
+    // Toggle view modes
+    const handleViewModeChange = (mode) => {
+        setViewMode(mode);
+    };
 
     return (
         <div>
@@ -74,15 +91,33 @@ const SearchResults = () => {
 
             {/* Search Section */}
             <div className="bg-white p-4 shadow-md flex justify-center items-center space-x-4">
-                <input type="text" placeholder="Search by University" className="border p-2 rounded w-1/3" />
-                <input type="text" placeholder="Search by Location" className="border p-2 rounded w-1/3" />
-                <input type="text" placeholder="Search by Ranking" className="border p-2 rounded w-1/3" />
+                <input
+                    type="text"
+                    placeholder="Search by University"
+                    className="border p-2 rounded w-1/3"
+                    value={searchName}
+                    onChange={(e) => setSearchName(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Search by Location"
+                    className="border p-2 rounded w-1/3"
+                    value={searchLocation}
+                    onChange={(e) => setSearchLocation(e.target.value)}
+                />
+                <input
+                    type="text"
+                    placeholder="Search by QS Ranking"
+                    className="border p-2 rounded w-1/3"
+                    value={searchRanking}
+                    onChange={(e) => setSearchRanking(e.target.value)}
+                />
                 <button className="bg-yellow-500 text-white px-4 py-2 rounded">Search</button>
             </div>
 
             {/* Breadcrumbs */}
             <div className="p-4">
-                <h1 className="text-2xl font-bold mb-4">Universities: {universities.length} results found</h1>
+                <h1 className="text-2xl font-bold mb-4">Universities: {filteredUniversities.length} results found</h1>
 
                 {/* Sorting and View Options */}
                 <div className="flex justify-between items-center mb-4">
@@ -91,8 +126,18 @@ const SearchResults = () => {
                         <span>Sort by: Top ranks for Universities</span>
                     </div>
                     <div className="flex space-x-2">
-                        <button className="border px-4 py-2 rounded">List</button>
-                        <button className="border px-4 py-2 rounded">Grid</button>
+                        <button 
+                            className={`border px-4 py-2 rounded ${viewMode === 'list' ? 'bg-gray-200' : ''}`}
+                            onClick={() => handleViewModeChange('list')}
+                        >
+                            List
+                        </button>
+                        <button 
+                            className={`border px-4 py-2 rounded ${viewMode === 'grid' ? 'bg-gray-200' : ''}`}
+                            onClick={() => handleViewModeChange('grid')}
+                        >
+                            Grid
+                        </button>
                     </div>
                 </div>
 
@@ -150,18 +195,19 @@ const SearchResults = () => {
 
                     {/* University Listings */}
                     <main className="w-3/4 p-4">
-                        {universities.map((university, index) => (
-                            <div key={index} className="border rounded p-4 mb-4">
-                                <div className="flex">
-                                    <img src={university.image} alt={university.name} className="w-1/3 h-45 rounded" />
-                                    <div className="w-3/4 pl-4">
+                        <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-3' : ''}`}>
+                            {filteredUniversities.map((university, index) => (
+                                <div key={index} className={`border rounded-lg p-4 ${viewMode === 'list' ? 'flex space-x-4' : ''}`}>
+                                    <div>
+                                        <img
+                                            src={university.image}
+                                            alt={university.name}
+                                            className="w-full h-40 object-cover rounded-md"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
                                         <h2 className="text-xl font-bold">{university.name}</h2>
-                                        <div className="flex items-center space-x-2 mb-2">
-                                            {university.featured && (
-                                                <span className="bg-yellow-400 text-white px-2 py-1 rounded">Featured</span>
-                                            )}
-                                            <span>{university.location}</span>
-                                        </div>
+                                        <p className="text-gray-600 mb-2">{university.location}</p>
                                         <div className="mb-2">
                                             <span className="font-semibold">QS Ranking: </span>
                                             <span>{university.qsRanking}</span>
@@ -171,21 +217,17 @@ const SearchResults = () => {
                                             <span>{university.nirfRanking}</span>
                                         </div>
                                         <div className="mb-2">
-                                            <span className="font-semibold">Phone: </span>
+                                            <span className="font-semibold">Phone Number: </span>
                                             <span>{university.phoneNumber}</span>
                                         </div>
-                                        <div className="flex items-center space-x-2 mt-2">
-                                            <button className="bg-blue-500 text-white px-4 py-2 rounded">See More</button>
-                                            <div className="flex items-center space-x-1">
-                                                <span className="text-gray-500">Excellent</span>
-                                                <span className="bg-blue-500 text-white px-2 py-1 rounded">{university.reviews.rating}</span>
-                                                <span className="text-gray-500">({university.reviews.count} reviews)</span>
-                                            </div>
+                                        <div className="flex items-center space-x-2">
+                                            <i className="fas fa-star text-yellow-500"></i>
+                                            <span>{university.reviews.rating} ({university.reviews.count} reviews)</span>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </main>
                 </div>
             </div>
