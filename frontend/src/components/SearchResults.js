@@ -1,48 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import universityData from '../json/universityData.json';
 
 const SearchResults = () => {
-    // Embedded JSON Data
-    const universityData = [
-        {
-            name: "Indian Institute of Technology Bombay",
-            location: "Mumbai, Maharashtra, India",
-            qsRanking: 177,
-            nirfRanking: 3,
-            phoneNumber: "+91-22-25722545",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jGXDtpoKU2QoWvZJinXfw7LeRGrzNA_Xmg&s",
-            reviews: {
-                rating: 4.8,
-                count: 320,
-            },
-            featured: true
-        },
-        {
-            name: "Indian Institute of Technology Delhi",
-            location: "Kuala Lumpur, Singapore",
-            qsRanking: 185,
-            nirfRanking: 2,
-            phoneNumber: "+91-11-26597135",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
-            reviews: {
-                rating: 4.7,
-                count: 290,
-            },
-            featured: false
-        },
-        {
-            name: "National University of Singapore",
-            location: "21 Lower Kent Ridge Rd, Singapore",
-            qsRanking: 227,
-            nirfRanking: 2,
-            phoneNumber: "+91-512-2590151",
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59H4g62ys-lMF-b4wK2AfEfqX_Is3FvCwtQ&s",
-            reviews: {
-                rating: 4.5,
-                count: 280,
-            },
-            featured: true
-        }
-    ];
+
 
     // State to store universities (since there's no fetching, we set it directly)
     const [universities, setUniversities] = useState([]);
@@ -50,10 +10,44 @@ const SearchResults = () => {
     const [searchLocation, setSearchLocation] = useState('');
     const [searchRanking, setSearchRanking] = useState('');
     const [viewMode, setViewMode] = useState('list'); // 'list' or 'grid' mode
+    const [filterUniversities, setFilterUniversities] = useState(universityData);
+    const [selectedCountry, setSelectedCountry] = useState('');
+
+    const countries = [
+        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", 
+        "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", 
+        "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", 
+        "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", 
+        "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", 
+        "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Croatia", "Cuba", 
+        "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", 
+        "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", 
+        "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", 
+        "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", 
+        "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", 
+        "Kazakhstan", "Kenya", "Kiribati", "Korea, North", "Korea, South", "Kuwait", "Kyrgyzstan", 
+        "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", 
+        "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", 
+        "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", 
+        "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", 
+        "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", 
+        "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", 
+        "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", 
+        "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", 
+        "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", 
+        "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", 
+        "Suriname", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", 
+        "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", 
+        "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", 
+        "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    ];
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    
 
     // Simulate fetching data by using useEffect to set the JSON data
     useEffect(() => {
         setUniversities(universityData); // Simulates fetching
+        setFilterUniversities(universityData);
     }, []);
 
     // Filtering Logic
@@ -64,6 +58,32 @@ const SearchResults = () => {
             (searchRanking === '' || university.qsRanking === parseInt(searchRanking)) // Filter by ranking if it's provided
         );
     });
+
+    const handleCountrySelect = (country) => {
+        setSelectedCountry(country);
+        const filtered = universityData.filter(university => university.location === country);
+        setFilterUniversities(filtered); // Update the state with the filtered universities
+    };
+
+    const handleFilter = (criteria) => {
+        let sortedUniversities = [...filterUniversities]; // Copy the current universities
+
+        switch (criteria) {
+            case 'nirf':
+                sortedUniversities.sort((a, b) => a.nirfRanking - b.nirfRanking);
+                break;
+            case 'qs':
+                sortedUniversities.sort((a, b) => a.qsRanking - b.qsRanking);
+                break;
+            case 'featured':
+                sortedUniversities = sortedUniversities.filter(university => university.featured);
+                break;
+            default:
+                break;
+        }
+
+        setFilterUniversities(sortedUniversities); // Update the state with the sorted universities
+    };
 
     // Toggle view modes
     const handleViewModeChange = (mode) => {
@@ -83,10 +103,34 @@ const SearchResults = () => {
 
             {/* Navigation Buttons */}
             <div className="bg-blue-900 text-white p-4 flex justify-center space-x-4">
-                <button className="bg-blue-700 px-4 py-2 rounded">Universities</button>
-                <button className="px-4 py-2 rounded">NIRF Ranking</button>
-                <button className="px-4 py-2 rounded">QS Ranking</button>
-                <button className="px-4 py-2 rounded">Country</button>
+                <button className="bg-blue-700 px-4 py-2 rounded" onClick={() => setFilterUniversities(universityData)}>Universities</button>
+                <button className="px-4 py-2 rounded" onClick={() => handleFilter('nirf')}>NIRF Ranking</button>
+                <button className="px-4 py-2 rounded" onClick={() => handleFilter('qs')}>QS Ranking</button>
+                {/* Country selection dropdown */}
+            <div className="relative inline-block text-left">
+                <button 
+                    className="px-4 py-2 rounded" 
+                    onClick={() => setDropdownOpen(!dropdownOpen)} // Toggle dropdown
+                >
+                    Country
+                </button>
+                {dropdownOpen && (
+                    <div className="absolute right-0 z-10 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                        <div className="py-1">
+                            {countries.map((country) => (
+                                <button 
+                                    key={country} 
+                                    onClick={() => handleCountrySelect(country)} 
+                                    className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                >
+                                    {country}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+                <button className="px-4 py-2 rounded" onClick={() => handleFilter('featured')}>Featured</button>
             </div>
 
             {/* Search Section */}
@@ -196,17 +240,49 @@ const SearchResults = () => {
                     {/* University Listings */}
                     <main className="w-3/4 p-4">
                         <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-3' : ''}`}>
+                            {/*
+                            <div className="mt-4">
+                                <h2>Select a Country</h2>
+                                {countries.map((country) => (
+                                    <button key={country} onClick={() => handleCountrySelect(country)} className="m-2 p-2 border rounded">
+                                        {country}
+                                    </button>
+                                ))}
+                            </div>
+
+                            
+                            <div className="mt-4">
+                                {filterUniversities.map(university => (
+                                    <div key={university.id} className="border-b py-2">
+                                        <h3 className="font-bold">
+                                            {university.name} 
+                                            {university.featured && (
+                                                <span className="bg-yellow-300 px-2 rounded ml-2">Featured</span>
+                                            )}
+                                        </h3>
+                                        <p>{university.location}</p>
+                                        <p>QS Ranking: {university.qsRanking}</p>
+                                    </div>
+                                ))}
+                            </div>*/}
                             {filteredUniversities.map((university, index) => (
                                 <div key={index} className={`border rounded-lg p-4 ${viewMode === 'list' ? 'flex space-x-4' : ''}`}>
                                     <div>
                                         <img
                                             src={university.image}
                                             alt={university.name}
-                                            className="w-full h-40 object-cover rounded-md"
+                                            //className="w-full h-40 object-cover rounded-md"
+                                            style={{ width: '300px', height: '200px', objectFit: 'cover' }} // Ensures a consistent aspect ratio
                                         />
                                     </div>
                                     <div className="flex-1">
-                                        <h2 className="text-xl font-bold">{university.name}</h2>
+                                        <h2 className="text-xl font-bold">{university.name}
+                                        {university.featured && (
+                                            <span className="bg-yellow-300 text-yellow-800 font-bold px-2 py-1 rounded ml-2">
+                                                Featured
+                                            </span>
+                                        )}
+                                        </h2>
                                         <p className="text-gray-600 mb-2">{university.location}</p>
                                         <div className="mb-2">
                                             <span className="font-semibold">QS Ranking: </span>

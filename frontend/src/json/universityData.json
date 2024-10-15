@@ -1,0 +1,67 @@
+[
+    {
+      "name": "Indian Institute of Technology, Bombay",
+      "location": "Mumbai, Maharashtra",
+      "qsRanking": 59,
+      "nirfRanking": 1,
+      "phoneNumber": "022 2572 2545",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
+      "featured": true,
+      "reviews": {
+        "rating": 9.6,
+        "count": 42
+      }
+    },
+    {
+      "name": "Indian Institute of Technology Delhi",
+      "location": "Delhi, India",
+      "qsRanking": 185,
+      "nirfRanking": 2,
+      "phoneNumber": "+91-11-26597135",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
+      "reviews": {
+          "rating": 4.7,
+          "count": 290
+      },
+      "featured": false
+    },
+    {
+      "name": "Indian Institute of Technology, Kharagpur",
+      "location": "Kharagpur, West Bengal",
+      "qsRanking": 224,
+      "nirfRanking": 4,
+      "phoneNumber": "032 2225 5221",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
+      "featured": true,
+      "reviews": {
+        "rating": 9.6,
+        "count": 42
+      }
+    },
+    {
+      "name": "Indian Institute of Technology, Kanpur",
+      "location": "Kanpur, Bihar",
+      "qsRanking": 225,
+      "nirfRanking": 5,
+      "phoneNumber": "032 2225 5220",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNV3TffyfrOH4J_5wms17NEghMcl2PDM7pdQ&s",
+      "featured": false,
+      "reviews": {
+        "rating": 9.5,
+        "count": 40
+      }
+    },
+    {
+      "name": "National University of Singapore",
+      "location": "21 Lower Kent Ridge Rd, Singapore",
+      "qsRanking": 227,
+      "nirfRanking": 4,
+      "phoneNumber": "+91-512-2590151",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59H4g62ys-lMF-b4wK2AfEfqX_Is3FvCwtQ&s",
+      "reviews": {
+          "rating": 4.5,
+          "count": 280
+      },
+      "featured": true
+  }
+]
