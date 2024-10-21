@@ -40,12 +40,12 @@ const Sidebar = () => {
                                 Virtual Reality
                             </a>
                         </li>
-                        <li className={styles.menuItem}>
+                        {/*<li className={styles.menuItem}>
                             <a href="/rtl" className={styles.menuLink}>
                                 <i className={`fas fa-sync-alt ${styles.menuIcon}`}></i>
                                 RTL
                             </a>
-                        </li>
+                        </li>*/}
                         <h3 className={styles.sectionHeader}>Account Pages</h3>
                         <li className={styles.menuItem}>
                             <a href="/rtl" className={styles.menuLink}>

@@ -43,7 +43,7 @@ function HomePage() {
                     <li>Select your desired courses.</li>
                     <li>Confirm your registration.</li>
                 </ol>
-                <Link to="/start-registration" className={styles.ctaButton}>Start Now</Link>
+                <Link to="/login" className={styles.ctaButton}>Start Now</Link>
             </section>
 
             <footer>
