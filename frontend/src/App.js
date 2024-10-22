@@ -36,6 +36,7 @@ import UnivFooter from './components/UnivFooter';
 import Placement from './components/Placement';
 import Upload from './components/Upload';
 import PaymentForm from './components/PaymentForm';
+import UnivProfTest from './components/UnivProfTest';
 import './styles/tailwind.css'; // Import Tailwind CSS
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
                     <Route path="/placement" element={<Placement />} />
                     <Route path="/upload" element={<Upload />} />
                     <Route path="/payment" element={<PaymentForm />} />
+                    <Route path="/univproftest/:id" element={<UnivProfTest />} />
                     <Route path="*" element={<h1>404 Not Found</h1>} />
                 </Routes>
                 </div>

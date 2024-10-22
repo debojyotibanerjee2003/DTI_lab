@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import universityData from '../json/universityData.json';
+import { Link } from 'react-router-dom';
 
 const SearchResults = () => {
 
@@ -240,31 +241,6 @@ const SearchResults = () => {
                     {/* University Listings */}
                     <main className="w-3/4 p-4">
                         <div className={`grid gap-4 ${viewMode === 'grid' ? 'grid-cols-3' : ''}`}>
-                            {/*
-                            <div className="mt-4">
-                                <h2>Select a Country</h2>
-                                {countries.map((country) => (
-                                    <button key={country} onClick={() => handleCountrySelect(country)} className="m-2 p-2 border rounded">
-                                        {country}
-                                    </button>
-                                ))}
-                            </div>
-
-                            
-                            <div className="mt-4">
-                                {filterUniversities.map(university => (
-                                    <div key={university.id} className="border-b py-2">
-                                        <h3 className="font-bold">
-                                            {university.name} 
-                                            {university.featured && (
-                                                <span className="bg-yellow-300 px-2 rounded ml-2">Featured</span>
-                                            )}
-                                        </h3>
-                                        <p>{university.location}</p>
-                                        <p>QS Ranking: {university.qsRanking}</p>
-                                    </div>
-                                ))}
-                            </div>*/}
                             {filteredUniversities.map((university, index) => (
                                 <div key={index} className={`border rounded-lg p-4 ${viewMode === 'list' ? 'flex space-x-4' : ''}`}>
                                     <div>
@@ -276,7 +252,7 @@ const SearchResults = () => {
                                         />
                                     </div>
                                     <div className="flex-1">
-                                        <h2 className="text-xl font-bold">{university.name}
+                                        <h2 className="text-xl font-bold"><Link to={`/univproftest/${university.id}`}>{university.name}</Link>
                                         {university.featured && (
                                             <span className="bg-yellow-300 text-yellow-800 font-bold px-2 py-1 rounded ml-2">
                                                 Featured
