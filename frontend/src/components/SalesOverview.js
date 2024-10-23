@@ -1,10 +1,7 @@
 import React from 'react';
-import styles from '../styles/Upload.module.css'; // Correctly importing the CSS module
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 
-
 const SalesOverview = () => {
-
     const navigate = useNavigate(); // Initialize the navigate function
 
     const handleSubmit = (event) => {
@@ -17,75 +14,44 @@ const SalesOverview = () => {
     };
 
     return (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold mb-2">Sales overview</h2>
-            <p className="text-gray-600 mb-4">↑ 4% more in 2021</p>
-            <img src="https://placehold.co/300x200" alt="Line chart showing sales overview" className="rounded-lg" />
+        <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0, 0, 0, 0.2)', maxWidth: '600px', margin: 'auto' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '10px', color: 'black' }}>Sales Overview</h2>
+            <p style={{ color: 'black', marginBottom: '20px' }}>↑ 4% more in 2021</p>
+            <img src="https://placehold.co/300x200" alt="Line chart showing sales overview" style={{ borderRadius: '8px', marginBottom: '20px' }} />
 
-            <div className={styles.uploadBody}>
-            <h1 className={styles.uploadTitle}>University Registration Document Upload</h1>
-            <div className={styles.uploadContainer}>
-                <section className={styles.uploadSection}>
-                    <h2 className={styles.uploadHeader}>Required Documents</h2>
-                    <ul className={styles.uploadList}>
-                        <li className={styles.uploadItem}>Transcripts</li>
-                        <li className={styles.uploadItem}>Passport Copy</li>
-                        <li className={styles.uploadItem}>Letter of Recommendation</li>
-                        <li className={styles.uploadItem}>Statement of Purpose</li>
-                        <li className={styles.uploadItem}>Proof of English Proficiency</li>
-                        <li className={styles.uploadItem}>Financial Statement</li>
-                        <li className={styles.uploadItem}>High School Diploma</li>
-                        <li className={styles.uploadItem}>GRE/GMAT Scores</li>
-                        <li className={styles.uploadItem}>Portfolio (for Art/Design courses)</li>
-                    </ul>
-                </section>
+            <h1 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '20px', color: 'black' }}>University Registration Document Upload</h1>
+            
+            <section style={{ marginBottom: '20px' }}>
+                <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', color: 'black' }}>Required Documents</h2>
+                <ul style={{ listStyleType: 'none', paddingLeft: '0', color: 'black' }}>
+                    <li>Transcripts</li>
+                    <li>Passport Copy</li>
+                    <li>Letter of Recommendation</li>
+                    <li>Statement of Purpose</li>
+                    <li>Proof of English Proficiency</li>
+                    <li>Financial Statement</li>
+                    <li>High School Diploma</li>
+                    <li>GRE/GMAT Scores</li>
+                    <li>Portfolio (for Art/Design courses)</li>
+                </ul>
+            </section>
 
-                <section className={styles.uploadForm}>
-                    <h2 className={styles.uploadHeader}>Upload Your Documents</h2>
-                    <form id="upload-form" onSubmit={handleSubmit}>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="transcripts">Transcripts:</label>
-                            <input className={styles.uploadInput} type="file" id="transcripts" name="transcripts" />
+            <section>
+                <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '10px', color: 'black' }}>Upload Your Documents</h2>
+                <form id="upload-form" onSubmit={handleSubmit}>
+                    {['transcripts', 'passport', 'recommendation', 'sop', 'proficiency', 'financial', 'diploma', 'scores', 'portfolio'].map((doc, index) => (
+                        <div key={index} style={{ marginBottom: '10px' }}>
+                            <label htmlFor={doc} style={{ display: 'block', marginBottom: '5px', color: 'black' }}>{doc.charAt(0).toUpperCase() + doc.slice(1).replace(/_/g, ' ')}:</label>
+                            <input type="file" id={doc} name={doc} style={{ width: '100%' }} />
                         </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="passport">Passport Copy:</label>
-                            <input className={styles.uploadInput} type="file" id="passport" name="passport" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="recommendation">Letter of Recommendation:</label>
-                            <input className={styles.uploadInput} type="file" id="recommendation" name="recommendation" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="sop">Statement of Purpose:</label>
-                            <input className={styles.uploadInput} type="file" id="sop" name="sop" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="proficiency">Proof of English Proficiency:</label>
-                            <input className={styles.uploadInput} type="file" id="proficiency" name="proficiency" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="financial">Financial Statement:</label>
-                            <input className={styles.uploadInput} type="file" id="financial" name="financial" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="diploma">High School Diploma:</label>
-                            <input className={styles.uploadInput} type="file" id="diploma" name="diploma" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="scores">GRE/GMAT Scores:</label>
-                            <input className={styles.uploadInput} type="file" id="scores" name="scores" />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label className={styles.uploadLabel} htmlFor="portfolio">Portfolio (for Art/Design courses):</label>
-                            <input className={styles.uploadInput} type="file" id="portfolio" name="portfolio" />
-                        </div>
-                        <button className={styles.uploadButton} type="submit">Submit & Save</button><br></br>
-                        <p>After Submitting all documents, click below to proceed for payment </p>
-                        <button className={styles.uploadButton} type="button" onClick={handlePayment}>Proceed to Payment</button><br></br>
-                    </form>
-                </section><br></br>
-            </div>
-        </div>
+                    ))}
+                    <button type="submit" style={{ padding: '10px 15px', backgroundColor: 'black', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Submit & Save</button>
+                    <br /><br />
+                    <p style={{ color: 'black' }}>After submitting all documents, click below to proceed for payment.</p>
+                    <button type="button" onClick={handlePayment} style={{ padding: '10px 15px', backgroundColor: 'black', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Proceed to Payment</button>
+                    <br /><br />
+                </form>
+            </section>
         </div>
     );
 };

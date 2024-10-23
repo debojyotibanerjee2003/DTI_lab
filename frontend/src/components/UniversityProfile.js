@@ -13,6 +13,7 @@ import ScholarshipPortal from './ScholarshipPortal';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import universityData from '../json/universityData.json';
+import AIChatbot from './AIChatbot';
 
 const UniversityProfile = () => {
     const location = useLocation();
@@ -137,6 +138,7 @@ const UniversityProfile = () => {
                 {renderPage()}
             </main>
             <UnivFooter />
+            <AIChatbot />
         </div>
     );
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import styles from '../styles/Sidebar.module.css'; // Import the CSS module
 
+
 const Sidebar = () => {
     return (
         <div className={styles.sidebarContainer}>
@@ -48,13 +49,13 @@ const Sidebar = () => {
                         </li>*/}
                         <h3 className={styles.sectionHeader}>Account Pages</h3>
                         <li className={styles.menuItem}>
-                            <a href="/rtl" className={styles.menuLink}>
+                            <a href="/university-profile" className={styles.menuLink}>
                                 <i className={`fas fa-user ${styles.menuIcon}`}></i>
                                 Profile
                             </a>
                         </li>
                         <li className={styles.menuItem}>
-                            <a href="/rtl" className={styles.menuLink}>
+                            <a href="/login" className={styles.menuLink}>
                                 <i className={`fas fa-user-plus ${styles.menuIcon}`}></i>
                                 Sign Up Now
                             </a>

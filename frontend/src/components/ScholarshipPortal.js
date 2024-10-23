@@ -1,6 +1,7 @@
 // ScholarshipPortal.js (React Component)
 import React from "react";
 import "../styles/ScholarshipPortal.module.css"; // External CSS or inline styles can remain unchanged
+import AIChatbot from "./AIChatbot";
 
 const ScholarshipCard = ({ featured, daysToGo, logo, title, award, eligibility, lastUpdated }) => {
     return (
@@ -192,6 +193,7 @@ const ScholarshipPortal = () => {
                     </div>
                 </main>
             </div>
+            <AIChatbot />
         </div>
     );
 };

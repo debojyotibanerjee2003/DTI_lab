@@ -14,6 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import universities from '../json/universityData.json';
 import '../styles/UnivProfile.css';
+import AIChatbot from './AIChatbot';
 
 const UnivProfTest = () => {
   const { id } = useParams();
@@ -78,6 +79,7 @@ const UnivProfTest = () => {
         <button onClick={handleApplyClick}>Apply Now</button>
       </div>
       <UnivFooter />
+      <AIChatbot />
     </div>
   );
 };

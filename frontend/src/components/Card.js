@@ -4,7 +4,7 @@ const Card = ({ title, value, percentage, icon }) => {
     return (
         <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
             <div className="bg-purple-600 text-white p-4 rounded-lg mr-4">
-                <i className={`${icon} text-2xl`}></i>
+                <i className={`${icon} text-2xl`}></i> {/* Corrected syntax here */}
             </div>
             <div>
                 <p className="text-gray-600">{title}</p>

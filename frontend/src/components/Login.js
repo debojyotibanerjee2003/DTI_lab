@@ -31,7 +31,8 @@ function Login({ userType }) {
             const data = await response.json();
             console.log(data);
     
-            // Redirect to the appropriate dashboard
+            
+                // Redirect to the appropriate dashboard
             if (userType === 'admin') {
                 navigate('/admin-dashboard');
             } else if (userType === 'university') {

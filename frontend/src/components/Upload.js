@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import styles from '../styles/Upload.module.css'; // Correctly importing the CSS module
+import AIChatbot from './AIChatbot';    // Import the AIChatbot component
 
 const Upload = () => {
     const navigate = useNavigate(); // Initialize the navigate function
@@ -78,6 +79,7 @@ const Upload = () => {
                     </form>
                 </section><br></br>
             </div>
+            <AIChatbot />
         </div>
     );
 };

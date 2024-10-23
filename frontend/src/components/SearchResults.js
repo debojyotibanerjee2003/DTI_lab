@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import universityData from '../json/universityData.json';
 import { Link } from 'react-router-dom';
+import AIChatbot from './AIChatbot';
 
 const SearchResults = () => {
 
+    
 
     // State to store universities (since there's no fetching, we set it directly)
     const [universities, setUniversities] = useState([]);
@@ -54,17 +56,20 @@ const SearchResults = () => {
     // Filtering Logic
     const filteredUniversities = universities.filter(university => {
         return (
-            university.name.toLowerCase().includes(searchName.toLowerCase()) &&
-            university.location.toLowerCase().includes(searchLocation.toLowerCase()) &&
+            university && 
+            university.name && university.name.toLowerCase().includes(searchName ? searchName.toLowerCase() : '') &&
+            university.location && university.location.toLowerCase().includes(searchLocation ? searchLocation.toLowerCase() : '') &&
             (searchRanking === '' || university.qsRanking === parseInt(searchRanking)) // Filter by ranking if it's provided
         );
     });
+    
 
     const handleCountrySelect = (country) => {
         setSelectedCountry(country);
         const filtered = universityData.filter(university => university.location === country);
         setFilterUniversities(filtered); // Update the state with the filtered universities
     };
+      
 
     const handleFilter = (criteria) => {
         let sortedUniversities = [...filterUniversities]; // Copy the current universities
@@ -93,6 +98,7 @@ const SearchResults = () => {
 
     return (
         <div>
+            <AIChatbot />
             {/* Header Section */}
             <header className="bg-blue-900 text-white p-4 flex justify-between items-center">
                 <div className="text-3xl font-bold px-10">UniSearch</div>

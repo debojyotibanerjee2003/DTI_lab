@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../styles/Navbar.module.css'; // Import as a module
 
+
 const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
@@ -32,8 +33,8 @@ const Navbar = () => {
             <ul className={styles.navbarLinks}>
                 <li><Link to="/login">Login/Sign-up</Link></li>
                 <li><Link to="/student-dashboard">Student Dashboard</Link></li>
-                {/*<li><Link to="/university-dashboard">University Dashboard</Link></li>
-                <li><Link to="/admin-dashboard">Admin Dashboard</Link></li>*/}
+                <li><Link to="/university-dashboard">University Dashboard</Link></li>
+                <li><Link to="/admin-dashboard">Admin Dashboard</Link></li>
                 <li><Link to="/search-results">Search Universities</Link></li>
                 <li><Link to="/scholarship-portal">Scholarship Portal</Link></li>
                 <li><Link to="/university-profile">University Profile</Link></li>

@@ -1,8 +1,9 @@
-// backend/app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
+const axios = require('axios'); // Import axios
+const { Ollama } = require('ollama'); // Import Ollama
 
 // Load environment variables
 dotenv.config();
@@ -22,7 +23,40 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Register/Login for generic user (this can be for additional roles or temporary users)
+// Create an instance of Ollama
+const ollama = new Ollama(); // Add this line
+
+// Define the endpoint for chat
+app.post('/api/chat', async (req, res) => {
+    const userMessage = req.body.message;
+
+    if (!userMessage) {
+        return res.status(400).json({ error: 'Message is required' });
+    }
+
+    try {
+        console.log('User message:', userMessage); // Log user input
+
+        // Send the user message to the FastAPI server
+        const fastApiResponse = await axios.post(`${process.env.FASTAPI_URL}/get_career_advice/`, {
+            question: userMessage
+        });
+
+        console.log('Response from FastAPI:', fastApiResponse.data); // Log FastAPI response
+
+        if (!fastApiResponse.data.output) {
+            throw new Error('No valid response from FastAPI');
+        }
+
+        // Send the response back to the client
+        res.json({ response: fastApiResponse.data.output });
+    } catch (error) {
+        console.error('Error generating response:', error.message || error);
+        res.status(500).json({ error: 'Error generating response' });
+    }
+});
+
+// Register/Login for generic user
 app.post('/register', (req, res) => {
     const { username, password } = req.body;
 
