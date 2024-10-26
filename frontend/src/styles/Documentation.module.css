@@ -7,30 +7,30 @@
 }
 
 .title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 2rem; /* Corresponds to text-2xl */
+    font-weight: bold; /* Corresponds to font-bold */
+    color: #ffffff; /* White color */
 }
 
 .description {
-    font-size: 1rem;
-    color: #d1d5db; /* Light gray text */
+    font-size: 1rem; /* Corresponds to text-lg */
+    color: #d1d5db; /* Light gray color */
     margin-bottom: 10px;
 }
 
 .sectionTitle {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 1.5rem; /* Corresponds to text-xl */
+    font-weight: bold; /* Corresponds to font-bold */
+    color: #ffffff; /* White color */
     margin-top: 20px;
 }
 
 .list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* No bullets */
+    padding: 0; /* No padding */
 }
 
 .list li {
-    color: #d1d5db; /* Light gray text */
-    padding: 5px 0;
+    color: #d1d5db; /* Light gray color */
+    padding: 5px 0; /* Vertical spacing */
 }
