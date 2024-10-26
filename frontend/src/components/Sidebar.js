@@ -36,7 +36,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                         <li className={styles.menuItem}>
-                            <Link to="/login" className={styles.menuLink}>
+                            <Link to="/settings" className={styles.menuLink}>
                                 <i className={`fas fa-cog ${styles.menuIcon}`}></i>
                                 Settings
                             </Link>

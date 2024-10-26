@@ -1,0 +1,64 @@
+/* src/styles/Settings.module.css */
+
+.container {
+    background-color: #f7fafc; /* Light gray background */
+}
+
+.header {
+    color: #2d3748; /* Dark gray text color */
+}
+
+.card {
+    background-color: #ffffff; /* White background for cards */
+    padding: 1rem; /* Padding inside cards */
+    border-radius: 0.5rem; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.profileInfo {
+    margin-bottom: 1rem; /* Spacing below profile info */
+}
+
+/* Utility styles for text colors */
+.text-gray {
+    color: #718096; /* Gray text color */
+}
+
+.text-blue {
+    color: #4299e1; /* Blue text color */
+}
+
+/* Add hover effect for edit buttons */
+button {
+    transition: color 0.2s; /* Smooth transition for color changes */
+}
+
+button:hover {
+    color: #3182ce; /* Darker blue on hover */
+}
+
+/* Dropdown styles */
+.dropdown {
+    display: none; /* Hide by default */
+}
+
+.dropdown:hover {
+    display: block; /* Show on hover */
+}
+
+/* Optional: Style the dropdown items */
+.dropdown div {
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.dropdown div:hover {
+    background-color: #edf2f7; /* Light gray background on hover */
+}
+
+/* styles/Settings.module.css */
+.dropdown {
+    border: 1px solid #ccc; /* Adjust border color */
+    background-color: white; /* Background for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1000; /* Ensure it's above other elements */
+}
