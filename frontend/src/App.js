@@ -44,7 +44,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ImageCard2 from './components/ImageCard2';
 import ImageCard3 from './components/ImageCard3';
 import Documentation from './components/Documentation';
-
+import Billing from './components/Billing.js'; // Import ToastContainer component
 import { UniversityProvider } from './context/UniversityProvider';
 import { UserProvider } from './context/UserContext';
 
@@ -97,6 +97,7 @@ function App() {
                                 <Route path="/image-card2" element={<ImageCard2 />} />
                                 <Route path="/image-card3" element={<ImageCard3 />} />
                                 <Route path="/documentation" element={<Documentation />} />
+                                <Route path="/billing" element={<Billing />} />
                             </Routes>
                         </div>
                     </div>

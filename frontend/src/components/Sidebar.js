@@ -42,7 +42,7 @@ const Sidebar = () => {
                             </Link>
                         </li>
                             <li className={styles.menuItem}>
-                                <Link to="/login" className={styles.menuLink}>
+                                <Link to="/billing" className={styles.menuLink}>
                                     <i className={`fas fa-file-invoice-dollar ${styles.menuIcon}`}></i>
                                     Billing
                                 </Link>

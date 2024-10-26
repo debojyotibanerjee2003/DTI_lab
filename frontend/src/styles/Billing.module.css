@@ -1,0 +1,136 @@
+.billingContainer {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #2b1055, #7597de);
+    color: #f1f1f1;
+    font-family: 'Roboto', sans-serif;
+}
+
+.mainContent {
+    text-align: center; /* Center aligns all text within mainContent */
+    width: 100%;
+}
+
+.introBadge {
+    background-color: #333;
+    padding: 0.5rem 1.5rem; /* Adjust padding if needed */
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1rem; /* Set to your desired text size */
+    line-height: 1; /* Ensure the line height is tight */
+}
+
+.mainTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    color: #ffffff;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #b0c4de;
+    margin-bottom: 1rem;
+}
+
+.description {
+    max-width: 700px;
+    margin: 0 auto; /* Centers the description */
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: #d3d3d3;
+}
+
+.planContainer {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.planCard {
+    background: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.planCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.popularPlan {
+    position: relative;
+}
+
+.crownIcon {
+    color: #ffcc00;
+}
+
+.planType {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #e6e6fa; /* Light lavender color */
+}
+
+.price {
+    margin: 1rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00ff00; /* Change to your desired color */
+}
+
+.featureList {
+    list-style: none;
+    padding: 0;
+}
+
+.featureItem {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.featureItem i {
+    color: #007bff; /* Icon color */
+    margin-right: 0.5rem;
+}
+
+.upgradeButton {
+    background-color: #00cc00; /* Green */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.upgradeButton:hover {
+    background-color: #009900; /* Darker green */
+}
+
+.basicButton {
+    background-color: #333; /* Dark gray */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.basicButton:hover {
+    background-color: #555; /* Lighter gray */
+}
