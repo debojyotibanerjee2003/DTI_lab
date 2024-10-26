@@ -72,7 +72,7 @@ const Sidebar = () => {
 
                     <div className={styles.helpSection}>
                         <p className={styles.helpText}>Need help?</p>
-                        <button className={styles.helpButton}>Documentation</button>
+                        <Link to="/documentation" className={styles.helpButton}>Documentation</Link>
                         <button className={styles.upgradeButton}>Upgrade to Pro</button>
                     </div>
                 </div>

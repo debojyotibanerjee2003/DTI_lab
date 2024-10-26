@@ -43,6 +43,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ImageCard2 from './components/ImageCard2';
 import ImageCard3 from './components/ImageCard3';
+import Documentation from './components/Documentation';
 
 import { UniversityProvider } from './context/UniversityProvider';
 import { UserProvider } from './context/UserContext';
@@ -95,6 +96,7 @@ function App() {
                                 <Route path="*" element={<h1>404 Not Found</h1>} />
                                 <Route path="/image-card2" element={<ImageCard2 />} />
                                 <Route path="/image-card3" element={<ImageCard3 />} />
+                                <Route path="/documentation" element={<Documentation />} />
                             </Routes>
                         </div>
                     </div>

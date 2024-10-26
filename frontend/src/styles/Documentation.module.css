@@ -1,0 +1,36 @@
+/* styles/Documentation.module.css */
+.documentationContainer {
+    background-color: #1f2937; /* Dark gray background */
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.description {
+    font-size: 1rem;
+    color: #d1d5db; /* Light gray text */
+    margin-bottom: 10px;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-top: 20px;
+}
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list li {
+    color: #d1d5db; /* Light gray text */
+    padding: 5px 0;
+}

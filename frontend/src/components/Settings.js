@@ -12,6 +12,9 @@ const Settings = () => {
     const [personalInfo, setPersonalInfo] = useState(personalInfoFields);
     const [addressInfo, setAddressInfo] = useState(addressFields);
     const [securityInfo, setSecurityInfo] = useState(securityFields);
+    const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [passwordError, setPasswordError] = useState("");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const fileInputRef = useRef(null);
 
@@ -42,6 +45,19 @@ const Settings = () => {
     };
 
     const handleSaveSecurityClick = () => {
+        if (newPassword && confirmPassword) {
+            if (newPassword === confirmPassword) {
+                // Handle password change logic here
+                console.log("Password changed successfully");
+                setPasswordError(""); // Clear any previous errors
+                setNewPassword("");
+                setConfirmPassword("");
+            } else {
+                setPasswordError("Passwords do not match");
+            }
+        } else {
+            setPasswordError("Both fields are required");
+        }
         setIsEditingSecurity(false);
     };
 
@@ -148,17 +164,44 @@ const Settings = () => {
             <ProfileSection 
                 ref={securityRef} 
                 title="Security" 
-                fields={securityInfo} 
                 isEditing={isEditingSecurity} 
                 onEditClick={handleEditSecurityClick} 
-                onSaveClick={handleSaveSecurityClick} 
-                setFields={setSecurityInfo}
-            />
+                onSaveClick={handleSaveSecurityClick}
+            >
+                {isEditingSecurity ? (
+                    <div className="flex flex-col space-y-2">
+                        <div>
+                            <label className="block text-gray-600">New Password:</label>
+                            <input
+                                type="password"
+                                className="border rounded w-full px-2 py-1"
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-gray-600">Confirm Password:</label>
+                            <input
+                                type="password"
+                                className="border rounded w-full px-2 py-1"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                        </div>
+                        {passwordError && <p className="text-red-500">{passwordError}</p>}
+                    </div>
+                ) : (
+                    <div className="flex flex-col space-y-2">
+                        <p className="text-gray-600">Password: ********</p>
+                        <p className="text-gray-600">Two-Factor Authentication: Enabled</p>
+                    </div>
+                )}
+            </ProfileSection>
         </div>
     );
 };
 
-const ProfileSection = React.forwardRef(({ title, fields, isEditing, onEditClick, onSaveClick, setFields }, ref) => {
+const ProfileSection = React.forwardRef(({ title, fields, isEditing, onEditClick, onSaveClick, setFields, children }, ref) => {
     return (
         <div ref={ref} className={`${styles.card} mb-4`}>
             <div className="flex justify-between items-center mb-4">
@@ -173,51 +216,48 @@ const ProfileSection = React.forwardRef(({ title, fields, isEditing, onEditClick
                     </button>
                 )}
             </div>
-            <div className="grid grid-cols-2 gap-4">
-                {fields.map((field, index) => (
-                    <div key={index}>
-                        <p className="text-gray-600">{field.label}:</p>
-                        {isEditing ? (
-                            <input
-                                type="text"
-                                className="border rounded w-full px-2 py-1"
-                                defaultValue={field.value}
-                                onChange={(e) => {
-                                    const updatedFields = [...fields];
-                                    updatedFields[index].value = e.target.value;
-                                    setFields(updatedFields);
-                                }}
-                            />
-                        ) : (
-                            <p>{field.value}</p>
-                        )}
-                    </div>
-                ))}
-            </div>
+            {children || (
+                <div className="grid grid-cols-2 gap-4">
+                    {fields.map((field, index) => (
+                        <div key={index}>
+                            <p className="text-gray-600">{field.label}:</p>
+                            {isEditing ? (
+                                <input
+                                    type="text"
+                                    className="border rounded w-full px-2 py-1"
+                                    defaultValue={field.value}
+                                    onChange={(e) => {
+                                        const updatedFields = [...fields];
+                                        updatedFields[index].value = e.target.value;
+                                        setFields(updatedFields);
+                                    }}
+                                />
+                            ) : (
+                                <p>{field.value}</p>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 });
 
-// Sample data for profile fields
 const personalInfoFields = [
-    { label: "First Name", value: "Arjun" },
-    { label: "Last Name", value: "Mehta" },
-    { label: "Email Address", value: "arjunmehta3@gmail.com" },
-    { label: "Phone Number", value: "8877996655" },
-    { label: "Bio", value: "Senior UI/UX Designer" },
+    { label: 'Name', value: 'Arjun Mehta' },
+    { label: 'Email', value: 'arjun@example.com' },
+    { label: 'Phone', value: '+91 123 456 7890' },
 ];
 
 const addressFields = [
-    { label: "Country", value: "India" },
-    { label: "State", value: "Karnataka" },
-    { label: "City", value: "Bengaluru" },
-    { label: "Postal Code", value: "530068" },
-    { label: "Tax ID", value: "AS5641789869" },
+    { label: 'Street', value: '123 Main St' },
+    { label: 'City', value: 'Bengaluru' },
+    { label: 'State', value: 'Karnataka' },
 ];
 
 const securityFields = [
-    { label: "Password", value: "********" },
-    { label: "Two-Factor Authentication", value: "Enabled" },
+    { label: 'Password', value: '********' },
+    { label: 'Two-Factor Authentication', value: 'Enabled' },
 ];
 
 export default Settings;
