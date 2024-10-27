@@ -1,8 +1,15 @@
 // ContactUs.js
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Update this import
 import styles from '../styles/ContactUs.module.css';
 
 const ContactUs = () => {
+  const navigate = useNavigate(); // Use useNavigate hook
+
+  const handleBack = () => {
+    navigate(-1); // Go back to the previous page
+  };
+
   return (
     <div className={`${styles.container} flex flex-col items-center min-h-screen`}>
       <div className="flex justify-center items-center">
@@ -51,6 +58,7 @@ const ContactUs = () => {
             <textarea placeholder="Your Message" className={`${styles.input} ${styles.textarea}`}></textarea>
             <button type="submit" className={styles.submitButton}>SUBMIT</button>
           </form>
+          <button onClick={handleBack} className={styles.backButton}>BACK</button> {/* Back button */}
         </div>
       </div>
     </div>

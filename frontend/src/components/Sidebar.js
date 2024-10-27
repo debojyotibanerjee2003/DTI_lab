@@ -56,7 +56,7 @@ const Sidebar = () => {
 
                             <h2 className={styles.sectionHeader}>Account Pages</h2>
                             <li className={styles.menuItem}>
-                                <Link to="/university-profile" className={styles.menuLink}>
+                                <Link to="/settings" className={styles.menuLink}>
                                     <i className={`fas fa-user ${styles.menuIcon}`}></i>
                                     Profile
                                 </Link>
@@ -73,7 +73,7 @@ const Sidebar = () => {
                     <div className={styles.helpSection}>
                         <p className={styles.helpText}>Need help?</p>
                         <Link to="/documentation" className={styles.helpButton}>Documentation</Link>
-                        <button className={styles.upgradeButton}>Upgrade to Pro</button>
+                        <Link to="/billing" className={styles.upgradeButton}>Upgrade to Pro</Link>
                     </div>
                 </div>
             )}
