@@ -48,9 +48,9 @@ const Sidebar = () => {
                                 </Link>
                             </li>
                             <li className={styles.menuItem}>
-                                <Link to="/login" className={styles.menuLink}>
+                                <Link to="/contactus" className={styles.menuLink}>
                                 <i className={`fas fa-headset ${styles.menuIcon}`}></i>
-                                    Helpdesk
+                                    Contact Us
                                 </Link>
                             </li>
 

@@ -1,8 +1,10 @@
 // src/Settings.js
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/Settings.module.css';
 
 const Settings = () => {
+    const navigate = useNavigate(); // Hook for navigating to previous page
     const securityRef = useRef(null);
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [isEditingAddress, setIsEditingAddress] = useState(false);
@@ -22,6 +24,10 @@ const Settings = () => {
         if (securityRef.current) {
             securityRef.current.scrollIntoView({ behavior: 'smooth' });
         }
+    };
+
+    const handleBackClick = () => {
+        navigate(-1); // Go back to the previous page
     };
 
     const handleEditProfileClick = () => {
@@ -47,9 +53,8 @@ const Settings = () => {
     const handleSaveSecurityClick = () => {
         if (newPassword && confirmPassword) {
             if (newPassword === confirmPassword) {
-                // Handle password change logic here
                 console.log("Password changed successfully");
-                setPasswordError(""); // Clear any previous errors
+                setPasswordError(""); 
                 setNewPassword("");
                 setConfirmPassword("");
             } else {
@@ -89,7 +94,7 @@ const Settings = () => {
     return (
         <div className={`${styles.container} max-w-4xl mx-auto p-4`}>
             <div className={`${styles.header} flex items-center mb-4`}>
-                <i className="fas fa-arrow-left text-xl mr-2"></i>
+                <i className="fas fa-arrow-left text-xl mr-2 cursor-pointer" onClick={handleBackClick}></i>
                 <h1 className="text-2xl font-semibold">Settings</h1>
                 <input 
                     type="file" 
@@ -233,7 +238,7 @@ const ProfileSection = React.forwardRef(({ title, fields, isEditing, onEditClick
                                     }}
                                 />
                             ) : (
-                                <p>{field.value}</p>
+                                <p className="text-gray-800">{field.value}</p>
                             )}
                         </div>
                     ))}
@@ -243,21 +248,24 @@ const ProfileSection = React.forwardRef(({ title, fields, isEditing, onEditClick
     );
 });
 
+// Sample data
 const personalInfoFields = [
-    { label: 'Name', value: 'Arjun Mehta' },
-    { label: 'Email', value: 'arjun@example.com' },
-    { label: 'Phone', value: '+91 123 456 7890' },
+    { label: "Full Name", value: "Arjun Mehta" },
+    { label: "Email", value: "arjun.mehta@example.com" },
+    { label: "Phone Number", value: "+91 12345 67890" },
+    { label: "Birthday", value: "January 1, 1990" },
 ];
 
 const addressFields = [
-    { label: 'Street', value: '123 Main St' },
-    { label: 'City', value: 'Bengaluru' },
-    { label: 'State', value: 'Karnataka' },
+    { label: "Address Line 1", value: "123, MG Road" },
+    { label: "City", value: "Bengaluru" },
+    { label: "State", value: "Karnataka" },
+    { label: "Country", value: "India" },
 ];
 
 const securityFields = [
-    { label: 'Password', value: '********' },
-    { label: 'Two-Factor Authentication', value: 'Enabled' },
+    { label: "Password", value: "********" },
+    { label: "Two-Factor Authentication", value: "Enabled" },
 ];
 
 export default Settings;

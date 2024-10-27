@@ -45,8 +45,10 @@ import ImageCard2 from './components/ImageCard2';
 import ImageCard3 from './components/ImageCard3';
 import Documentation from './components/Documentation';
 import Billing from './components/Billing.js'; // Import ToastContainer component
+import ContactUs from './components/ContactUs.js';
 import { UniversityProvider } from './context/UniversityProvider';
 import { UserProvider } from './context/UserContext';
+
 
 function App() {
     return (
@@ -98,6 +100,7 @@ function App() {
                                 <Route path="/image-card3" element={<ImageCard3 />} />
                                 <Route path="/documentation" element={<Documentation />} />
                                 <Route path="/billing" element={<Billing />} />
+                                <Route path="/contactus" element={<ContactUs />} />
                             </Routes>
                         </div>
                     </div>
