@@ -5,9 +5,9 @@
     justify-content: space-between;
     align-items: center;
     background-color: rgba(31, 31, 31, 1); /* Semi-transparent background */
-    padding: 15px 30px;
+    padding: 15px 40px; /* Adjusted padding for better spacing */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
     position: fixed;
     top: 0;
     width: 100%;
@@ -16,7 +16,7 @@
 }
 
 .navbar.scrolled {
-    background-color: rgba(31, 31, 31, 0.8); /* Fully opaque background when scrolled */
+    background-color: rgba(31, 31, 31, 0.9); /* Slightly darker when scrolled */
 }
 
 .navbarLogo a {
@@ -27,7 +27,6 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: color 0.3s ease;
-    padding-right: 30px;
 }
 
 .navbarLogo a:hover {
@@ -37,32 +36,34 @@
 .navbarLinks {
     list-style-type: none;
     display: flex;
-    gap: 45px;
+    gap: 30px; /* Reduced gap for a more compact look */
     margin: 0;
 }
 
 .navbarLinks li {
     margin: 0;
-    position: relative;
 }
 
 .navbarLinks a {
+    display: flex; /* Enable flexbox */
+    justify-content: center; /* Center align horizontally */
+    align-items: center; /* Center align vertically */
     color: #eaeaea;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px; /* Uniform padding for links */
     font-size: 1rem;
     font-weight: 500;
     transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
 }
 
-/* Active link styling */
 .navbarLinks a.active {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2); /* Active link styling */
     color: #579cd1;
 }
 
 .navbarLinks a:hover {
+    background-color: rgba(87, 156, 209, 0.2); /* Light background on hover */
     color: #579cd1;
 }
 
@@ -84,7 +85,7 @@
 
 @media (max-width: 1024px) {
     .navbarLinks {
-        gap: 15px;
+        gap: 20px; /* Reduced gap for smaller screens */
     }
 }
 
