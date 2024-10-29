@@ -46,7 +46,7 @@ const UniversityProfile = () => {
                     <div>
                         <section id="admission">
                             <h2>Admission Procedure</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                            <p>Step Into Excellence – Begin Your Journey with Us!</p>
                             <ul>
                                 <li><strong>Step 1:</strong> Online Application</li>
                                 <li><strong>Step 2:</strong> Document Verification</li>
@@ -102,7 +102,7 @@ const UniversityProfile = () => {
 
                         <section id="placements">
                             <h2>Placements</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+                            <p>Equipping You for the Real World!</p>
                             <ul>
                                 <li><strong>Top Recruiters:</strong> Google, Microsoft, Amazon</li>
                                 <li><strong>Average Salary Package:</strong> Rs. 6,00,000 per annum</li>

@@ -1,23 +1,21 @@
-/* Reset some default styles */
+/* Reset and Basic Styling */
 body, h1, h2, p, ul, li, ol {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Basic Styles */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
     background-color: #f4f4f4;
 }
 
 .hero {
-    background: #0056b3;
+    background: linear-gradient(135deg, #003f7f, #0056b3);
     color: #fff;
     padding: 2rem 0;
     text-align: center;
+    border-radius: 0 0 10px 10px;
 }
 
 .hero h1 {
@@ -38,32 +36,41 @@ body {
     border-radius: 5px;
     font-weight: bold;
     margin: 1rem;
-    transition: background 0.3s;
+    transition: background 0.3s, transform 0.3s;
 }
 
 .ctaButton:hover {
     background: #e6f7ff;
+    transform: scale(1.05);
 }
 
 .getStartedButton {
-    background: #ff6600; /* Different color for differentiation */
+    background: #ff6600;
+    color: #fff;
 }
 
 .infoSections {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px; /* Adjust spacing between sections */
+    gap: 20px;
     padding: 2rem 0;
 }
 
 .infoSection {
-    flex: 1 1 calc(25% - 20px); /* Adjust size of each section */
+    flex: 1 1 calc(25% - 20px);
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 1rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardHover:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #fffbf2, #f4f4f4);
 }
 
 .infoSection h2 {
@@ -75,31 +82,31 @@ body {
     margin-bottom: 1rem;
 }
 
-#getStarted {
+.getStarted {
     background: #e6f7ff;
     padding: 2rem 0;
     text-align: center;
 }
 
-#getStarted h2 {
+.getStarted h2 {
     color: #0056b3;
 }
 
-#getStarted ol {
+.getStarted ol {
     list-style-type: decimal;
     padding-left: 20px;
     text-align: left;
     display: inline-block;
 }
 
-footer {
+.footer {
     background: #333;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
 
-footer p {
+.footer p {
     margin: 0;
 }
 

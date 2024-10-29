@@ -46,6 +46,8 @@ import ImageCard3 from './components/ImageCard3';
 import Documentation from './components/Documentation';
 import Billing from './components/Billing.js'; // Import ToastContainer component
 import ContactUs from './components/ContactUs.js';
+import Feedback  from './components/Feedback.js';
+
 import { UniversityProvider } from './context/UniversityProvider';
 import { UserProvider } from './context/UserContext';
 
@@ -101,6 +103,7 @@ function App() {
                                 <Route path="/documentation" element={<Documentation />} />
                                 <Route path="/billing" element={<Billing />} />
                                 <Route path="/contactus" element={<ContactUs />} />
+                                <Route path="/feedback" element={<Feedback />} />
                             </Routes>
                         </div>
                     </div>

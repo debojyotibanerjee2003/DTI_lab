@@ -1,0 +1,132 @@
+/* Feedback.module.css */
+
+.container {
+    max-width: 40rem; /* Similar to max-w-2xl */
+    margin: 2rem auto; /* Center the container */
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+
+.title {
+    font-size: 2rem; /* text-3xl */
+    font-weight: 600; /* font-semibold */
+    color: #2d3748; /* text-gray-800 */
+}
+
+.subtitle {
+    color: #718096; /* text-gray-600 */
+    margin-top: 0.5rem; /* mt-2 */
+}
+
+.separator {
+    margin: 1.5rem 0; /* my-6 */
+}
+
+.formGroup {
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+.label {
+    display: block;
+    color: #4a5568; /* text-gray-700 */
+    font-weight: 500; /* font-medium */
+    margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.radioGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* space-x-4 */
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+}
+
+.radioInput {
+    accent-color: #4c51bf; /* text-indigo-600 */
+}
+
+.radioLabel {
+    margin-left: 0.5rem; /* ml-2 */
+    color: #4a5568; /* text-gray-700 */
+}
+
+.textarea {
+    width: 100%; /* w-full */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 */
+    border: 1px solid #cbd5e0; /* border */
+    border-radius: 0.375rem; /* rounded-lg */
+    color: #4a5568; /* text-gray-700 */
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.textarea:focus {
+    box-shadow: 0 0 0 2px #63b3ed; /* focus:shadow-outline */
+}
+
+.nameGroup {
+    display: flex;
+    gap: 1rem; /* space-x-4 */
+}
+
+.nameInput {
+    width: 50%; /* w-1/2 */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 */
+    border: 1px solid #cbd5e0; /* border */
+    border-radius: 0.375rem; /* rounded-lg */
+    color: #4a5568; /* text-gray-700 */
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.nameInput:focus {
+    box-shadow: 0 0 0 2px #63b3ed; /* focus:shadow-outline */
+}
+
+.emailInput {
+    width: 100%; /* w-full */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 */
+    border: 1px solid #cbd5e0; /* border */
+    border-radius: 0.375rem; /* rounded-lg */
+    color: #4a5568; /* text-gray-700 */
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.emailInput:focus {
+    box-shadow: 0 0 0 2px #63b3ed; /* focus:shadow-outline */
+}
+
+.helperText {
+    color: #a0aec0; /* text-gray-500 */
+    font-size: 0.875rem; /* text-sm */
+    margin-top: 0.25rem; /* mt-1 */
+}
+
+.submitGroup {
+    display: flex;
+    justify-content: flex-end; /* justify-end */
+}
+
+.submitButton {
+    padding: 0.5rem 1.5rem; /* px-6 py-2 */
+    background: #4c51bf; /* bg-indigo-600 */
+    color: white;
+    font-weight: 500; /* font-medium */
+    border-radius: 0.375rem; /* rounded-lg */
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submitButton:hover {
+    background: #434190; /* hover:bg-indigo-700 */
+}
+
+.required {
+    color: #f56565; /* text-red-500 */
+}
