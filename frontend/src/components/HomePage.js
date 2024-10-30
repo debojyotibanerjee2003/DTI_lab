@@ -7,10 +7,12 @@ function HomePage() {
     return (
         <div className={styles.homepageContainer}>
             <header className={styles.hero}>
-                <h1>Welcome to University Course Registration System</h1>
-                <p>Enhancing the course registration experience for students</p>
-                <Link to="/login" className={styles.ctaButton}>Explore the Journey Map</Link>
-                <Link to="/login" className={`${styles.ctaButton} ${styles.getStartedButton}`}>Get Started</Link>
+                <h1 className={styles.title}>Welcome to University Course Registration System</h1>
+                <p className={styles.subtitle}>Enhancing the course registration experience for students</p>
+                <div className={styles.buttonGroup}>
+                    <Link to="/login" className={styles.ctaButton}>Explore the Journey Map</Link>
+                    <Link to="/login" className={`${styles.ctaButton} ${styles.getStartedButton}`}>Get Started</Link>
+                </div>
             </header>
 
             <section className={styles.infoSections}>
@@ -37,12 +39,7 @@ function HomePage() {
 
             <section className={styles.getStarted}>
                 <h2>Get Started with Course Registration</h2>
-                <p>Ready to begin? </p>
-                {/*<ol>
-                    <li>Explore available courses.</li>
-                    <li>Select your desired courses.</li>
-                    <li>Confirm your registration.</li>
-                </ol>*/}
+                {/*<p>Ready to begin?</p>*/}
                 <Link to="/login" className={styles.ctaButton}>Start Now</Link>
             </section>
 
